@@ -1,0 +1,43 @@
+name: Android CD
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  deploy-to-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: gradle
+
+      - name: Create local.properties
+        run: |
+          echo "GITHUB_CLIENT_ID=\"${{ secrets.CLIENT_ID }}\"" > local.properties
+          echo "GITHUB_CLIENT_SECRET=\"${{ secrets.CLIENT_SECRET }}\"" >> local.properties
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Build APK
+        run: ./gradlew assembleDebug
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: app/build/outputs/apk/debug/app-debug.apk
+          name: "Release ${{ github.ref_name }}"
+          body: "下載下方的 APK 進行安裝。"
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
