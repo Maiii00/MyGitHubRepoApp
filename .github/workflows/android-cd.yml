@@ -34,7 +34,7 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: app/build/outputs/apk/debug/app-debug.apk
+          files: app/build/outputs/apk/debug/githubRepo.apk
           name: "Release ${{ github.ref_name }}"
           body: "下載下方的 APK 進行安裝。"
           draft: false
