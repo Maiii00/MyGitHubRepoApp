@@ -1,8 +1,12 @@
 # GithubRepoApp
 ---
-使用 kotlin + android studio 製作，透過 Oauth 登入 Github 拿取 Repository 資訊
+> 使用 kotlin + android studio 製作，透過 Oauth 登入 Github 拿取 Repository 資訊
+---
+1. 主畫面
+<img width="746" height="1645" alt="image" src="https://github.com/user-attachments/assets/0f53918d-52ba-4584-ac98-4151f66f6d9b" />
 
-主畫面
-<img width="1080" height="2400" alt="image" src="https://github.com/user-attachments/assets/2ce2d3aa-60ad-4e9d-8f21-c620295a610e" />
+2. 登入後
+<img width="747" height="1612" alt="image" src="https://github.com/user-attachments/assets/284c8432-3a11-4684-aea7-b30adc1a464f" />
 
-登入後
+3. 可以點擊導向
+<img width="747" height="1645" alt="image" src="https://github.com/user-attachments/assets/d9420423-cae6-4659-b1d7-2e1e6eaec6f7" />
