@@ -21,8 +21,8 @@ jobs:
 
       - name: Create local.properties
         run: |
-          echo "GITHUB_CLIENT_ID=\"${{ secrets.CLIENT_ID }}\"" > local.properties
-          echo "GITHUB_CLIENT_SECRET=\"${{ secrets.CLIENT_SECRET }}\"" >> local.properties
+          echo "CLIENT_ID=${{ secrets.CLIENT_ID }}" > local.properties
+          echo "CLIENT_SECRET=${{ secrets.CLIENT_SECRET }}" >> local.properties
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
